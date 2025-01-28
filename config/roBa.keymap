@@ -19,7 +19,7 @@
 
         tab {
             bindings = <&kp TAB>;
-            key-positions = <11 12>;
+            key-positions = <1 0>;
         };
 
         backspace {
