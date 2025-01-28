@@ -93,10 +93,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
+&trans  &trans          &kp UP_ARROW    &trans           &trans                      &trans  &trans              &trans    &trans               &trans
+&trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans      &trans  &trans  &mkp MB1            &mkp MB3  &mkp MB2             &trans
+&trans  &trans          &trans          &trans           &trans  &trans      &trans  &trans  &kp LG(LEFT_ARROW)  &trans    &kp LG(RIGHT_ARROW)  &trans
+&trans  &trans          &trans          &trans           &trans  &trans      &trans  &trans                                                     &trans
             >;
         };
 
@@ -114,7 +114,7 @@
 &trans  &trans  &trans  &trans  &trans                           &bootloader  &sys_reset  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans       &trans       &trans      &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &bootloader  &trans       &trans      &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans       &trans                                   &trans
+&to 1   &trans  &trans  &trans  &trans  &to 0       &to 0        &trans                                   &to 1
             >;
         };
     };
