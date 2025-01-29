@@ -31,6 +31,11 @@
             bindings = <&kp LG(LSHFT)>;
             key-positions = <35 22>;
         };
+
+        minus {
+            bindings = <&kp MINUS>;
+            key-positions = <8 7>;
+        };
     };
 
     macros {
