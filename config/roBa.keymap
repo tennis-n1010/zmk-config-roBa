@@ -3,7 +3,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/pointing.h>
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 #define MOUSE 1
@@ -15,8 +14,6 @@
 };
 
 &sl { release-after-ms = <250>; }; // ダブルクリックに必要な時間を設定
-
-
 / {
     combos {
         compatible = "zmk,combos";
@@ -60,7 +57,7 @@
                 <&macro_release>,
                 <&mkp LCLK>,
                 <&macro_tap>,
-                <&tog_off 4 &sl 4>;
+                <&tog_off 5 &sl 5>;
 
             label = "MACRO_LEFT_CLICK";
         };
@@ -99,19 +96,30 @@
             bindings = <
 &kp Q      &kp W         &kp E         &kp R  &kp T                                &kp Y            &kp U  &kp I      &kp O    &kp P
 &kp A      &kp S         &kp D         &kp F  &kp G  &trans           &trans       &kp H            &kp J  &kp K      &kp L    &kp ENTER
-&kp Z      &kp X         &kp C         &kp V  &kp B  &trans           &trans       &kp N            &kp M  &kp COMMA  &kp DOT  &mo 5
-&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &mo 4  &mo 2  &lt 3 SPACE      &lt 3 SPACE  &lt 2 BACKSPACE                             &lt 4 ESCAPE
+&kp Z      &kp X         &kp C         &kp V  &kp B  &trans           &trans       &kp N            &kp M  &kp COMMA  &kp DOT  &mo 6
+&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &mo 2  &mo 3  &lt 4 SPACE      &lt 4 SPACE  &lt 3 BACKSPACE                             &lt 2 ESCAPE
             >;
 
             sensor-bindings = <&scroll_up_down>;
         };
 
-        BLUETOOTH {
+        MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                            &out OUT_TOG  &out OUT_BLE  &out OUT_USB  &trans        &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans        &trans        &trans        &trans        &trans        &trans
-&to 5   &trans  &trans  &trans  &trans  &to 0       &to 0         &trans                                                  &to 5
+&trans  &trans  &trans  &trans  &trans                      &trans         &trans     &trans     &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &to_layer_0 H  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans         &mkp MB4   &trans     &mkp MB5   &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                          &trans
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        ARROW {
+            bindings = <
+&kp TAB           &trans        &kp UP_ARROW    &trans     &trans                      &trans  &trans     &trans     &trans     &trans
+&kp CAPS          &kp LEFT      &kp DOWN_ARROW  &kp RIGHT  &trans  &trans      &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans
+&kp LEFT_SHIFT    &trans        &trans          &trans     &trans  &trans      &trans  &trans  &mkp MB4   &trans     &mkp MB5   &trans
+&kp LEFT_CONTROL  &kp LEFT_GUI  &kp LEFT_ALT    &trans     &trans  &trans      &trans  &trans                                   &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -133,30 +141,32 @@
 &kp EXCLAMATION  &kp AT_SIGN  &kp POUND  &kp DOLLAR  &kp PERCENT                      &kp CARET      &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
 &trans           &trans       &trans     &trans      &trans       &trans      &trans  &kp MINUS      &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp BACKSLASH
 &trans           &trans       &trans     &trans      &trans       &trans      &trans  &kp SEMICOLON  &kp SQT        &kp PERIOD        &kp SLASH             &kp RIGHT_SHIFT
-&to 1            &trans       &trans     &trans      &trans       &trans      &trans  &trans                                                                &to 1
-            >;
-
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
-        };
-
-        MOUSE {
-            bindings = <
-&kp TAB           &trans          &kp UP_ARROW    &trans           &trans                      &trans  &trans              &kp PAGE_UP    &trans               &trans
-&kp CAPS          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans      &trans  &trans  &macro_left_click   &mkp MB3       &mkp MB2             &trans
-&kp LEFT_SHIFT    &trans          &trans          &trans           &trans  &trans      &trans  &trans  &kp LG(LEFT_ARROW)  &kp PAGE_DOWN  &kp LG(RIGHT_ARROW)  &mo 5
-&kp LEFT_CONTROL  &kp LEFT_GUI    &kp LEFT_ALT    &trans           &trans  &trans      &trans  &trans                                                          &trans
+&to 5            &trans       &trans     &trans      &trans       &trans      &trans  &trans                                                                &to 5
             >;
 
             sensor-bindings = <&scroll_up_down>;
         };
 
-        SCROLL {
+        BLUETOOTH {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                            &trans        &out OUT_BLE  &out OUT_USB  &trans        &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &bt BT_CLR    &bt BT_CLR    &bt BT_CLR    &bt BT_CLR    &bt BT_CLR    &trans
+&to 6   &trans  &trans  &trans  &trans  &to 0       &to 0         &trans                                                  &to 6
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        layer_5 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&to 6   &trans  &trans  &trans  &trans  &to 0       &to 0   &trans                          &to 6
+&to 7   &trans  &trans  &trans  &trans  &to 0       &to 0   &trans                          &to 7
             >;
+
+            sensor-bindings = <&scroll_up_down>;
         };
 
         layer_6 {
@@ -164,8 +174,10 @@
 &trans  &trans  &trans  &trans  &trans                           &bootloader  &sys_reset  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans       &trans       &trans      &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &bootloader  &trans       &trans      &trans  &trans  &trans
-&to 1   &trans  &trans  &trans  &trans  &to 0       &to 0        &trans                                   &to 1
+&to 5   &trans  &trans  &trans  &trans  &to 0       &to 0        &trans                                   &to 5
             >;
+
+            sensor-bindings = <&scroll_up_down>;
         };
     };
 };
