@@ -137,6 +137,22 @@
 
             label = "MO2_FORCE0";
         };
+
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&tog_off 1 &kp SPACE>;
+
+            label = "NEW_MACRO";
+        };
+
+        new_macro2: new_macro2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&tog_off 1 &kp ESCAPE>;
+
+            label = "NEW_MACRO2";
+        };
     };
 
     behaviors {
@@ -167,7 +183,16 @@
         new_behavior: new_behavior {
             compatible = "zmk,behavior-hold-tap";
             label = "NEW_BEHAVIOR";
-            bindings = <&mo4_force0>, <&kp>;
+            bindings = <&mo4_force0>, <&new_macro>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        new_behavior2: new_behavior2 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "NEW_BEHAVIOR2";
+            bindings = <&mo2_force0>, <&new_macro2>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -190,10 +215,10 @@
 
         MOUSE {
             bindings = <
-&to_layer_0 Q  &to_layer_0 W  &to_layer_0 E  &to_layer_0 R  &to_layer_0 T                                          &to_layer_0 Y  &to_layer_0 U      &to_layer_0 I        &to_layer_0 O       &to_layer_0 P
-&to_layer_0 A  &to_layer_0 S  &to_layer_0 D  &to_layer_0 F  &to_layer_0 G  &trans           &trans                 &to_layer_0 H  &macro_left_click  &macro_middle_click  &macro_right_click  &to_layer_0 RETURN
-&to_layer_0 Z  &to_layer_0 X  &to_layer_0 C  &to_layer_0 V  &to_layer_0 B  &trans           &trans                 &to_layer_0 N  &mkp MB4           &to_layer_0 COMMA    &mkp MB5            &mo 4
-&kp LCTRL      &kp LEFT_GUI   &kp LEFT_ALT   &mo2_force0    &mo3_force0    &mo4_force0      &new_behavior 0 SPACE  &mo3_force0                                                                &mo2_force0
+&to_layer_0 Q  &to_layer_0 W  &to_layer_0 E  &to_layer_0 R  &to_layer_0 T                                                 &to_layer_0 Y  &to_layer_0 U      &to_layer_0 I        &to_layer_0 O       &to_layer_0 P
+&to_layer_0 A  &to_layer_0 S  &to_layer_0 D  &to_layer_0 F  &to_layer_0 G  &trans                 &trans                  &to_layer_0 H  &macro_left_click  &macro_middle_click  &macro_right_click  &to_layer_0 RETURN
+&to_layer_0 Z  &to_layer_0 X  &to_layer_0 C  &to_layer_0 V  &to_layer_0 B  &trans                 &trans                  &to_layer_0 N  &mkp MB4           &to_layer_0 COMMA    &mkp MB5            &mo 4
+&kp LCTRL      &kp LEFT_GUI   &kp LEFT_ALT   &mo2_force0    &mo3_force0    &new_behavior 0 0      &new_behavior2 0 SPACE  &mo3_force0                                                                &new_behavior2 0 0
             >;
 
             sensor-bindings = <&scroll_up_down>;
