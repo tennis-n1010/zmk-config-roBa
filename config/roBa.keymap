@@ -298,7 +298,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        layer_5 {
+        layer_6 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
@@ -309,7 +309,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        layer_6 {
+        layer_7 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                           &bootloader  &sys_reset  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans       &trans       &trans      &trans  &trans  &trans
