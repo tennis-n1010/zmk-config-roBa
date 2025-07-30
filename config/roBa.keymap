@@ -267,10 +267,10 @@
 
         NUM_FUNCTION {
             bindings = <
-&kp F1            &kp F2        &kp F3        &kp F4   &kp F13                      &kp KP_NUMLOCK   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS
-&kp F5            &kp F6        &kp F7        &kp F8   &kp F14  &trans      &trans  &kp KP_DOT       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS
-&kp F9            &kp F10       &kp F11       &kp F12  &kp F15  &trans      &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp ASTERISK
-&kp LEFT_CONTROL  &kp LEFT_GUI  &kp LEFT_ALT  &trans   &trans   &trans      &trans  &trans                                                              &kp SLASH
+&kp F1            &kp F2        &kp F3        &kp F4   &kp F13                      &kp KP_NUMLOCK   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_PLUS
+&kp F5            &kp F6        &kp F7        &kp F8   &kp F14  &trans      &trans  &kp KP_DOT       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS
+&kp F9            &kp F10       &kp F11       &kp F12  &kp F15  &trans      &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_MULTIPLY
+&kp LEFT_CONTROL  &kp LEFT_GUI  &kp LEFT_ALT  &trans   &trans   &trans      &trans  &trans                                                              &kp KP_DIVIDE
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -290,8 +290,8 @@
         BLUETOOTH {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                            &trans        &out OUT_BLE  &out OUT_USB  &trans        &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &bt BT_CLR    &bt BT_CLR    &bt BT_CLR    &bt BT_CLR    &bt BT_CLR    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&trans  &trans  &trans  &trans  &trans  &trans      &trans        &bt BT_CLR    &bt BT_CLR    &bt BT_CLR    &bt BT_CLR    &bt BT_CLR 
 &to 6   &trans  &trans  &trans  &trans  &to 0       &to 0         &trans                                                  &to 6
             >;
 
