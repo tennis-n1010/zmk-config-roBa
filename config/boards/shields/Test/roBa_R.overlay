@@ -31,7 +31,6 @@
     spi0_sleep: spi0_sleep {
         group1 {
             pinmux = <SPI0_SCK_P2>, <SPI0_TX_P3>, <SPI0_RX_P0>;
-            low-power-enable;
         };
     };
 };
