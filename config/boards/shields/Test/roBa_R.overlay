@@ -23,15 +23,13 @@
     };
 };
 
-
-
-&xiao_serial { status = "disabled"; };
-
-&spi0 {
-    status = "okay";
-    compatible = "raspberrypi,pico-spi";
-    pinctrl-0 = <&spi0_default>;
-    pinctrl-names = "default";
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            pinmux = <SPI0_SCK_P2>, <SPI0_TX_P3>, <SPI0_RX_P0>;
+        };
+    };
+};    pinctrl-names = "default";
 
     /* CS=D0(=GPIO26) にした例。配線に合わせて変更OK */
     cs-gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;
