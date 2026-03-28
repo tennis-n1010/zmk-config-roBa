@@ -1,5 +1,7 @@
 #include "roBa.dtsi"
 #include <dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 
 &default_transform {
     col-offset = <6>;
@@ -20,6 +22,12 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
 
+        scroller_invert {
+            layers = <4>;
+            input-processors = <
+                &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT
+            >;
+        };
     };
 };
 
