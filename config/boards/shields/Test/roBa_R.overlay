@@ -25,7 +25,6 @@
         scroller_invert {
             layers = <4>;
             input-processors = <
-                &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT
             >;
         };
     };
